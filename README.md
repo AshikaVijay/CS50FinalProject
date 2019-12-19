@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# CS50FinalProject
+Final Project for the CS50 Course. A medication log app using the NHS api to search
+>>>>>>> 92f26b76d7c04eba15359a52bfb02f642538ffa1
