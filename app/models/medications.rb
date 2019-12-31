@@ -1,3 +1,0 @@
-class Medications < ApplicationRecord
-
-end
