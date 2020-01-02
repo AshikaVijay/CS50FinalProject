@@ -12,7 +12,12 @@
       <th>Notes</th>
     </tr>
   </thead>  
-
-  
+     <% @medications.each do |m| %>
+    <tr>
+      <td><%= m.name %></td>
+      <td><%= m.start_date %></td>
+    </tr>
+    </tr>
+  <% end %>
 
 </table>

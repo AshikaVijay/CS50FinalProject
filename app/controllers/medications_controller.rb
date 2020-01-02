@@ -5,35 +5,43 @@ class MedicationsController < ApplicationController
 	end
 
 	def new 
-		@medications = Medication.new
+		@medication = Medication.new
 	end
 
 	def show
-		@medications = Medication.find(params[:id])
+		@medication = Medication.find(params[:id])
 	end
 
 	def create
- 		@medications = Medication.new(medications_params)
- 		#@medications.save
+ 		@medication = Medication.new(medication_params)
+ 		#Rails.logger.info(@medication.errors.full_messages.inspect()) unless @medication.save
+ 		if @medication.save
+ 			redirect_to summary_index_path
+ 		else
+ 			render :action => 'new'
+ 		end
 
- 		if @medications.save
-      		#redirect_to :action => 'index'
-      		flash[:success] = "works"
-      		redirect_to summary_index_path
-   		else
-   			flash[:error] = "doesn't work"
-      		render :action => 'new'
-   		end
+		
+
+ 		# if @medication.save
+   #    		#redirect_to :action => 'index'
+   #    		flash[:success] = "works"
+   #    		redirect_to summary_index_path
+   # 		else
+   # 			flash[:error] = "doesn't work"
+   		
+   #    		render :action => 'new'
+   # 		end
    		# 
- 		#respond_with @medications, locations: summary_index_path
+ 		#respond_with @medications, locations: summary_isndex_path
 	end
 
 	def edit
-		@medications = Medication.find(params[:id])
+		@medication = Medication.find(params[:id])
 	end
 
 	def update
-		@medications = Medication.find(params[:id])
+		@medication = Medication.find(params[:id])
 
 		# if @book.update_attributes(book_param)
   #     		redirect_to :action => 'show', :id => @book
@@ -50,7 +58,7 @@ class MedicationsController < ApplicationController
 
 	private
 
-	def medications_params
+	def medication_params
    		params.require(:medication).permit(:name, :start_date, :end_date, :dose, :notes)
 	end
 end

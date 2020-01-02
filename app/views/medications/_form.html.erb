@@ -1,31 +1,30 @@
  
-  <%= form_with model: @medication, url: medications_path do |form| %>
+   <%= form_with model: @medication, url: medications_path do |f| %>
 
   <p>
-    <%= label_tag :name, 'Search for a medication' %>
-    <%= text_field_tag :name, nil, placeholder: 'E.g. Ibuprofen' %>
-    <%= button_tag 'Search' %> <!-- Fill in name of medication from search from NHS API-->
+  	<%= f.label :name %><br>
+    <%= f.text_field :name %>
   </p>
 
   <p>
-    <%= form.label :start_date %><br>
-    <%= form.text_area :start_date %><!--get time picker js-->
+    <%= f.label :start_date %><br>
+    <%= f.text_area :start_date %><!--get time picker js-->
   </p>
   <p>
-    <%= form.label :end_date %><br>
-    <%= form.text_area :end_date %> <!--get time picker js-->
+    <%= f.label :end_date %><br>
+    <%= f.text_area :end_date %> <!--get time picker js-->
   </p>
   <p>
-    <%= form.label :dose %><br>
-    <%= form.text_area :dose %> <!-- units? Don't allow text-->
+    <%= f.label :dose %><br>
+    <%= f.text_area :dose %> <!-- units? Don't allow text-->
   </p>
   <p>
-    <%= form.label :notes %><br>
-    <%= form.text_area :notes %>
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
   </p>
  
   <p>
-    <%= form.submit "Create Medication"%>
+    <%= f.submit "Create Medication"%>
   </p>
  
 <% end %>

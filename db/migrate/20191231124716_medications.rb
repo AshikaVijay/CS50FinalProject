@@ -7,6 +7,6 @@ class Medications < ActiveRecord::Migration[6.0]
       t.integer :dose
       t.text :notes
 
-      t.timestamp
+      t.timestamps
   end
 end
