@@ -21,8 +21,6 @@ class MedicationsController < ApplicationController
  			render :action => 'new'
  		end
 
-		
-
  		# if @medication.save
    #    		#redirect_to :action => 'index'
    #    		flash[:success] = "works"

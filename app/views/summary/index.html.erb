@@ -13,11 +13,13 @@
     </tr>
   </thead>  
      <% @medications.each do |m| %>
-    <tr>
-      <td><%= m.name %></td>
-      <td><%= m.start_date %></td>
-    </tr>
-    </tr>
+      <tr align="center">
+        <td><%= m.name %></td>
+        <td><%= m.start_date %></td>
+        <td><%= m.end_date %></td>
+        <td><%= m.dose %></td>
+        <td><%= m.notes %></td>
+      </tr>
   <% end %>
 
 </table>
