@@ -1,5 +1,5 @@
  
-   <%= form_with model: @medication, url: medications_path do |f| %>
+   <%= form_with model: @medication, url: "#{medications_path}/#{@medication.id}" do |f| %>
 
   <p>
   	<%= f.label :name %><br>
@@ -22,9 +22,13 @@
     <%= f.label :notes %><br>
     <%= f.text_area :notes %>
   </p>
- 
+  
   <p>
-    <%= f.submit "Create Medication"%>
+  	<% if @medication.id.present? %>
+   		<%= f.submit "Update Medication"%>
+	<% else %>
+		<%= f.submit "Create Medication" %>
+	<% end %>	
   </p>
  
 <% end %>

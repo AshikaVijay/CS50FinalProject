@@ -19,7 +19,11 @@
         <td><%= m.end_date %></td>
         <td><%= m.dose %></td>
         <td><%= m.notes %></td>
-      </tr>
+        <td><%= link_to 'Edit', edit_medication_path(m) %></td>
+        <td><%= link_to 'Delete', medication_path(m),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+        </tr>
   <% end %>
 
 </table>

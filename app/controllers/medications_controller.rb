@@ -20,18 +20,6 @@ class MedicationsController < ApplicationController
  		else
  			render :action => 'new'
  		end
-
- 		# if @medication.save
-   #    		#redirect_to :action => 'index'
-   #    		flash[:success] = "works"
-   #    		redirect_to summary_index_path
-   # 		else
-   # 			flash[:error] = "doesn't work"
-   		
-   #    		render :action => 'new'
-   # 		end
-   		# 
- 		#respond_with @medications, locations: summary_isndex_path
 	end
 
 	def edit
@@ -40,18 +28,18 @@ class MedicationsController < ApplicationController
 
 	def update
 		@medication = Medication.find(params[:id])
-
-		# if @book.update_attributes(book_param)
-  #     		redirect_to :action => 'show', :id => @book
-  #  		else
-  #     		@subjects = Subject.all
-  #     		render :action => 'edit'
-  #  		end
+		if @medication.update_attributes(medication_params)
+      		redirect_to summary_index_path
+   		else
+      		render :action => 'edit'
+   		end
 	end
 
-	def delete
-		Medication.find(params[:id]).destroy
-		#redirect
+	def destroy
+		@medication = Medication.find(params[:id])
+		if @medication.destroy
+			redirect_to summary_index_path
+		end
 	end
 
 	private
