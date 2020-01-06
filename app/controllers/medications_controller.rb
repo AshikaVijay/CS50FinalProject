@@ -16,6 +16,7 @@ class MedicationsController < ApplicationController
  		@medication = Medication.new(medication_params)
  		#Rails.logger.info(@medication.errors.full_messages.inspect()) unless @medication.save
  		if @medication.save
+ 			flash[:notice] = "Medication successfully created"
  			redirect_to summary_index_path
  		else
  			render :action => 'new'
@@ -29,6 +30,7 @@ class MedicationsController < ApplicationController
 	def update
 		@medication = Medication.find(params[:id])
 		if @medication.update_attributes(medication_params)
+			flash[:notice] = "Medication successfully updated"
       		redirect_to summary_index_path
    		else
       		render :action => 'edit'
@@ -38,6 +40,7 @@ class MedicationsController < ApplicationController
 	def destroy
 		@medication = Medication.find(params[:id])
 		if @medication.destroy
+			flash[:notice] = "Medication successfully deleted"
 			redirect_to summary_index_path
 		end
 	end

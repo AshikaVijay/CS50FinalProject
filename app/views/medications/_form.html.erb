@@ -2,8 +2,11 @@
    <%= form_with model: @medication, url: "#{medications_path}/#{@medication.id}" do |f| %>
 
   <p>
+  	<%#= label_tag :name, 'Search for a medication' %>
+    <%#= text_field_tag :name, nil, placeholder: 'E.g. Ibuprofen' %>
+    <%#= button_tag 'Search' %> <!-- Fill in name of medication from search from NHS API-->
   	<%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_area :name %>
   </p>
 
   <p>
