@@ -13,6 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-//= require bootstrap 
-
-$('.delete_notice').on('click', function(){ $('.alert-dismissible').hide(); });
+//= require bootstrap
+//= require jquery  
+//= require bootstrap-sprockets

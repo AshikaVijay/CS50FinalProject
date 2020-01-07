@@ -1,22 +1,43 @@
- 
-   <%= form_with model: @medication, url: "#{medications_path}/#{@medication.id}" do |f| %>
+<!--  jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-  <p>
+<!-- Isolated Version of Bootstrap, not needed if your site already uses Bootstrap -->
+<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+
+<!-- Bootstrap Date-Picker Plugin -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+
+  <%= form_with model: @medication, url: "#{medications_path}/#{@medication.id}" do |f| %>
+
   	<%#= label_tag :name, 'Search for a medication' %>
     <%#= text_field_tag :name, nil, placeholder: 'E.g. Ibuprofen' %>
     <%#= button_tag 'Search' %> <!-- Fill in name of medication from search from NHS API-->
-  	<%= f.label :name %><br>
+  	
+<div class="bootstrap-iso">
+ <div class="container-fluid">
+<p>
+	<%= f.label :name %><br>
     <%= f.text_area :name %>
-  </p>
+</p>
 
-  <p>
-    <%= f.label :start_date %><br>
-    <%= f.text_area :start_date %><!--get time picker js-->
-  </p>
-  <p>
-    <%= f.label :end_date %><br>
-    <%= f.text_area :end_date %> <!--get time picker js-->
-  </p>
+   <div class="row">
+   <div class="col-md-6 col-sm-1 col-xs-12">
+      <div class="form-group"> <!-- Date input -->
+        <label class="control-label" for="date"><%= f.label :start_date %></label>
+        <input class="form-control" id="date" name="date" placeholder="DD/MM/YYY" type="text"/>
+      </div>
+
+      <div class="form-group"> <!-- Date input -->
+        <label class="control-label" for="date"><%= f.label :end_date %></label>
+        <input class="form-control" id="date" name="date" placeholder="DD/MM/YYY" type="text"/>
+      </div>
+
+      <div class="form-group"> 
+    
+    </div>
+  
   <p>
     <%= f.label :dose %><br>
     <%= f.text_area :dose %> <!-- units? Don't allow text-->
@@ -25,14 +46,44 @@
     <%= f.label :notes %><br>
     <%= f.text_area :notes %>
   </p>
-  
+  </div>    
+ </div> 
   <p>
   	<% if @medication.id.present? %>
-   		<%= f.submit "Update Medication"%>
+   		 <button class="btn btn-primary" name="submit" type="submit">Update Medication</button>
 	<% else %>
-		<%= f.submit "Create Medication" %>
+		 <button class="btn btn-primary" name="submit" type="submit">Create Medication</button>
 	<% end %>	
+
+	<%# if @medication.id.present? %>
+   		<%#= f.submit "Update Medication"%>
+	<%# else %>
+		<%#= f.submit "Create Medication" %>
+	<%# end %>	
   </p>
- 
+      
 <% end %>
+
+<script>
+    $(document).ready(function(){
+      var date_input=$('input[name="date"]'); //our date input has the name "date"
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      var options={
+        format: 'dd/mm/yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input.datepicker(options);
+    })
+</script>
+
+
+
+  <%#= f.label :start_date %>
+    <%#= f.text_area :start_date %><!--get time picker js-->
+  
+
+    <%#= f.label :end_date %><
+    <%#= f.text_area :end_date %> <!--get time picker js-->
 

@@ -14,4 +14,6 @@ class Medication < ApplicationRecord
   	validate :dose
   	validate :notes
 
+  
+
 end

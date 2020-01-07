@@ -25,6 +25,7 @@ class MedicationsController < ApplicationController
 
 	def edit
 		@medication = Medication.find(params[:id])
+		Rails.logger.info(@medication.errors.full_messages.inspect())
 	end
 
 	def update

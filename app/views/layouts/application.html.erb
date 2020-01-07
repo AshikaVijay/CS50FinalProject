@@ -4,8 +4,9 @@
     <title>Project</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+<!-- <link href="css/bootstrap.min.css" rel="stylesheet" media="all">
+     -->
+      
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -28,8 +29,10 @@
           <%= flash[:alert]%>
       </div>
     <% end %>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+    <script src="/assets/bootstrap.min.js"></script>
+   
+   
     <%= yield %>
   </body>
 </html>
