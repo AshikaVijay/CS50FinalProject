@@ -1,13 +1,22 @@
-<!--  jQuery -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-<!-- Isolated Version of Bootstrap, not needed if your site already uses Bootstrap -->
-<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
 
 <!-- Bootstrap Date-Picker Plugin -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/> -->
+<!-- <head> 
+<link rel="stylesheet" href="jquery-ui.min.css">
+<script src="external/jquery/jquery.js"></script>
+<script src="jquery-ui.min.js"></script>
+</head> -->
 
+<!-- <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet"> -->
+<!-- <script src = "https://code.jquery.com/jquery-1.10.2.js"></script> -->
+<!-- <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script> -->
+
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 
   <%= form_with model: @medication, url: "#{medications_path}/#{@medication.id}" do |f| %>
 
@@ -15,28 +24,24 @@
     <%#= text_field_tag :name, nil, placeholder: 'E.g. Ibuprofen' %>
     <%#= button_tag 'Search' %> <!-- Fill in name of medication from search from NHS API-->
   	
-<div class="bootstrap-iso">
- <div class="container-fluid">
-<p>
-	<%= f.label :name %><br>
-    <%= f.text_area :name %>
-</p>
+	<div class="bootstrap-iso">
+	 <div class="container-fluid">
+	<p>
+		<%= f.label :name %><br>
+	    <%= f.text_area :name %>
+	</p>
 
-   <div class="row">
-   <div class="col-md-6 col-sm-1 col-xs-12">
-      <div class="form-group"> <!-- Date input -->
-        <label class="control-label" for="date"><%= f.label :start_date %></label>
-        <input class="form-control" id="date" name="date" placeholder="DD/MM/YYY" type="text"/>
-      </div>
+	<!-- <input type="text" name="date" id="date"> -->
 
-      <div class="form-group"> <!-- Date input -->
-        <label class="control-label" for="date"><%= f.label :end_date %></label>
-        <input class="form-control" id="date" name="date" placeholder="DD/MM/YYY" type="text"/>
-      </div>
+	<p>
+    <%= f.label :start_date %><br>
+    <%= f.text_field :start_date, id: 'startdate'  %><!--get time picker js-->
+  	</p>
 
-      <div class="form-group"> 
-    
-    </div>
+  <p>
+    <%#= f.label :end_date %> <br>
+    <%#= f.text_field :end_date, id: 'enddate'%> <!--get time picker js-->
+  </p>
   
   <p>
     <%= f.label :dose %><br>
@@ -46,44 +51,33 @@
     <%= f.label :notes %><br>
     <%= f.text_area :notes %>
   </p>
-  </div>    
- </div> 
+  
   <p>
   	<% if @medication.id.present? %>
    		 <button class="btn btn-primary" name="submit" type="submit">Update Medication</button>
 	<% else %>
 		 <button class="btn btn-primary" name="submit" type="submit">Create Medication</button>
 	<% end %>	
-
-	<%# if @medication.id.present? %>
-   		<%#= f.submit "Update Medication"%>
-	<%# else %>
-		<%#= f.submit "Create Medication" %>
-	<%# end %>	
   </p>
+  </div>    
+ </div> 
       
 <% end %>
 
 <script>
-    $(document).ready(function(){
-      var date_input=$('input[name="date"]'); //our date input has the name "date"
-      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-      var options={
-        format: 'dd/mm/yyyy',
-        container: container,
-        todayHighlight: true,
-        autoclose: true,
-      };
-      date_input.datepicker(options);
-    })
+  $( document ).ready(function() { 
+$("#startdate").datepicker();
+});
+
 </script>
 
+<!-- <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script> -->
+ <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script> -->
+<!-- <script src="/Scripts/jquery-ui-1.12.1.js"></script>
+ -->
 
 
-  <%#= f.label :start_date %>
-    <%#= f.text_area :start_date %><!--get time picker js-->
-  
-
-    <%#= f.label :end_date %><
-    <%#= f.text_area :end_date %> <!--get time picker js-->
 

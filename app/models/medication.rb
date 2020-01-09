@@ -9,11 +9,9 @@ class Medication < ApplicationRecord
  #  )
 
 	  validate :name
-  	validates :start_date, presence: true
- 	  validates :end_date, presence: true
+  	validate :start_date
+ 	  validate :end_date
   	validate :dose
   	validate :notes
-
-  
 
 end
