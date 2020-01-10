@@ -25,12 +25,12 @@ class MedicationsController < ApplicationController
 
 	def edit
 		@medication = Medication.find(params[:id])
-		Rails.logger.info(@medication.errors.full_messages.inspect())
+		# Rails.logger.info(@medication.errors.full_messages.inspect())
 	end
 
 	def update
 		@medication = Medication.find(params[:id])
-		if @medication.update_attributes(medication_params)
+		if @medication.update(medication_params)
 			flash[:notice] = "Medication successfully updated"
       		redirect_to summary_index_path
    		else

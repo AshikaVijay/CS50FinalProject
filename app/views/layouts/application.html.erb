@@ -4,12 +4,13 @@
     <title>Project</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-<!-- <link href="css/bootstrap.min.css" rel="stylesheet" media="all">
-     -->
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="/assets/bootstrap.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+ 
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': true %>
 
   </head>
 
@@ -31,14 +32,17 @@
       </div>
     <% end %>
    
-   
-   
     <%= yield %>
   </body>
 </html>
 
+
 <script> 
+ 
+jQuery(function($) {
   $('.close').on('click', function(){ $('.alert-dismissible').hide(); });
+});    
+
  
   </script>
 

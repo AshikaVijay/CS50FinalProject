@@ -11,8 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery-ui/datepicker
-//= require turbolinks
+//= require jquery-ui
 //= require_tree .
 //= require bootstrap-sprockets
 //=require bootstrap
