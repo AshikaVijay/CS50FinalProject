@@ -2,6 +2,10 @@ class MedicationsController < ApplicationController
 
 	def index 
 		@medications = Medication.all
+		if params[:search]
+			@search_term = params[:search]
+			@medications_search = @medications.search_by(@search_term)
+		end
 	end
 
 	def new 

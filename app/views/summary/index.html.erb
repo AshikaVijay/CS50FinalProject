@@ -7,6 +7,12 @@
 <h1 style="text-align:center"> Medications Summary </h1>
 <a href="<%= new_medication_path %>" class="btn btn-primary btn-s pull-left"><b>+</b> Add New Medication</a>
 
+<div class= "pull-right" >
+<%= form_for "", url: medications_path, role: "search", method: :get do %>
+  <%= text_field_tag :search, @search_term, placeholder: "Search Medications" %>
+<% end %>
+</div>
+
   <div class="row custyle" style="width:100%">
   <table class="table table-striped custab">  
   <thead>
