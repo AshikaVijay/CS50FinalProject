@@ -8,10 +8,10 @@
 
 <% if params[:search].present? %>
 	<% if @medications_search.exists? %>
-		  <div class="row custyle" style="width:100%">
-		  <table class="table table-striped custab">  
-			  <thead>
-			    <tr style="text-align:center">
+		<div class="row custyle" style="width:100%">
+		<table class="table table-striped custab">  
+			<thead>
+				<tr style="text-align:center">
 			      <th>Name</th>
 			      <th>Start date</th>
 			      <th>End date</th>
@@ -19,9 +19,9 @@
 			      <th>Notes</th>
 			      <th></th>
 			    </tr>
-			  </thead>  
+			</thead>  
 	  
-			   <% @medications_search.each do |m| %>
+		    <% @medications_search.each do |m| %>
 			    <tr align="left">
 			      <td><%= m.name %></td>
 			      <td><%= m.start_date.strftime("%d/%m/%Y") %></td>
@@ -33,9 +33,9 @@
 			              method: :delete,
 			              data: { confirm: 'Are you sure you want to delete this medication?' }, class: 'btn btn-danger btn-s' %></td> 
 			      </tr>
-			    <% end %>
-		    </table>
-			</div>
+		    <% end %>
+	    </table>
+		</div>
 	<% else %>
     	<h4 style="text-align:center"> No results found </h>
     <%end %>

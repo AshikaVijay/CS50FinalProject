@@ -13,34 +13,35 @@
 <% end %>
 </div>
 
-  <div class="row custyle" style="width:100%">
+<div class="row custyle" style="width:100%">
   <table class="table table-striped custab">  
-  <thead>
+  
+    <thead>
+      <tr style="text-align:center">
+        <th>Name</th>
+        <th>Start date</th>
+        <th>End date</th>
+        <th>Dose(mg)</th>
+        <th>Notes</th>
+        <th></th>
+      </tr>
+    </thead>  
 
-    <tr style="text-align:center">
-      <th>Name</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th>Dose(mg)</th>
-      <th>Notes</th>
-      <th></th>
-    </tr>
-  </thead>  
-   <% @medications.each do |m| %>
-    <tr align="left">
-      <td><%= m.name %></td>
-      <td><%= m.start_date.strftime("%d/%m/%Y") %></td>
-      <td><%= m.end_date.strftime("%d/%m/%Y") %></td>
-      <td><%= m.dose %></td>
-      <td><%= m.notes %></td>
-      <td class="text-center"><a class='btn btn-info btn-s' href="<%= edit_medication_path(m)%>"> Edit</a>
-      <%= link_to 'Delete', medication_path(m),
-              method: :delete,
-              data: { confirm: 'Are you sure you want to delete this medication?' }, class: 'btn btn-danger btn-s' %></td> 
+    <% @medications.each do |m| %>
+      <tr align="left">
+        <td><%= m.name %></td>
+        <td><%= m.start_date.strftime("%d/%m/%Y") %></td>
+        <td><%= m.end_date.strftime("%d/%m/%Y") %></td>
+        <td><%= m.dose %></td>
+        <td><%= m.notes %></td>
+        <td class="text-center"><a class='btn btn-info btn-s' href="<%= edit_medication_path(m)%>"> Edit</a>
+        <%= link_to 'Delete', medication_path(m),
+                method: :delete,
+                data: { confirm: 'Are you sure you want to delete this medication?' }, class: 'btn btn-danger btn-s' %></td> 
       </tr>
     <% end %>
 
-</table>
+  </table>
 </div>
 
  
